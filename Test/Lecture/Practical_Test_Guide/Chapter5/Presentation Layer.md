@@ -48,3 +48,13 @@ AWS Aurora → DB 클러스트 모드 같은 것을 사용하면, 같은 EndPoin
 ### @WebMvcTest
 
 * Controller 관련 Bean만 띄워주는 Test
+
+
+
+### Validation
+
+* Domain 정책이 변경되어서 상품 이름은 20자 이상이라는 조건이 있다면, 
+  해당 Valdation을 Presentation Layer(ProductCreateRequest에서 Validation Annotation으로 검증)하는 것이 적절할까? 
+  * @NotBlank, @NotEmpty등은 유효하다. 
+  * 그러나 해당 조건(글자 수)의 경우 서비스 레이어에서 검증하든, 도메인 객체를 생성하는 시점에서 생성자에서 검증을 하든 안쪽 Layer에서 검증하는 것이 좋다. 
+  * 즉 Validation의 성격이 다르다. 
